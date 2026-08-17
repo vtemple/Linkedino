@@ -1,0 +1,43 @@
+{
+  "name": "cv-saas",
+  "version": "1.0.0",
+  "description": "Génère un CV interactif, un PDF A4 et un PDF ATS depuis un profil LinkedIn exporté.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "seed:profiles": "tsx --tsconfig tsconfig.scripts.json scripts/seed-profiles.ts",
+    "reset:demo": "tsx --tsconfig tsconfig.scripts.json scripts/reset-demo.ts",
+    "make:fixture": "tsx --tsconfig tsconfig.scripts.json scripts/make-pdf-fixture.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fontsource/jost": "^5.3.0",
+    "@sparticuz/chromium": "^149.0.0",
+    "jszip": "^3.10.1",
+    "next": "^15.5.23",
+    "puppeteer-core": "^25.7.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sharp": "^0.35.3",
+    "unpdf": "^1.8.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.10"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

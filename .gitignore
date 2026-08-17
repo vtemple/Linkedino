@@ -1,0 +1,34 @@
+# Dépendances
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+
+# Secrets — seul .env.example est versionné
+.env
+.env.*
+!.env.example
+
+# Données d'exécution : CV importés, assets téléversés, travaux d'import.
+# Contient les données personnelles des utilisateurs : ne doit jamais partir
+# dans le dépôt, même sur un poste de développement.
+.data/
+
+# Sorties de génération locales
+/exports/
+*.local
+
+# Outils et plateformes
+.netlify/
+.vercel/
+coverage/
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
