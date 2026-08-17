@@ -1,4 +1,4 @@
-# Noyau déterministe — SaaS de génération de CV
+# Noyau déterministe, SaaS de génération de CV
 
 Étapes 1 à 4 de la feuille de route : modèle de données, import du prototype,
 renderer LaTeX. Aucun LLM, aucun appel réseau, aucun aléa.
