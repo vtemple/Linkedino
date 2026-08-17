@@ -44,9 +44,23 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./package.json
 
-# Stockage des CV et des assets. À monter sur un volume persistant, sans quoi
-# les données disparaissent à chaque redéploiement.
-VOLUME /app/.data
+# Stockage des CV et des assets.
+#
+# Aucune déclaration de volume Docker ici : Railway la rejette au moment de la
+# construction de l'image (« not supported, use Railway Volumes »). La
+# persistance se déclare côté plateforme, en montant un Railway Volume sur ce
+# chemin exact :
+#
+#     Mount path : /app/.data
+#
+# Le chemin doit rester `/app/.data` car `FileCVRepository` le résout par
+# `join(process.cwd(), ".data")` et le WORKDIR du conteneur est `/app`. Sans
+# volume monté, l'application fonctionne mais les CV disparaissent à chaque
+# redéploiement.
+#
+# Le répertoire est créé pour que le point de montage existe et que
+# l'application démarre même sans volume.
+RUN mkdir -p /app/.data
 
 EXPOSE 3000
 CMD ["npm", "run", "start"]
